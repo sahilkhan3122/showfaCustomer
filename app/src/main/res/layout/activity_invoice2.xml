@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ui.invoice.InvoicesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.invoice.InvoiceActivity">
+
+        <include
+            android:id="@+id/invoiceToolbar"
+            layout="@layout/item_toolbar"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/pickupDropUpAddress"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/bg_background_tab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/invoiceToolbar"
+            >
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgPickUpLocation"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/ic_location"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtPickUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/pickup"
+                android:textColor="@color/darkGray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/imgPickUpLocation"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtPickUpAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/_522_5th_floor_i_square_corporate_park_sciecity"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/txtPickUp"
+                app:layout_constraintTop_toBottomOf="@id/txtPickUp" />
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imgeDropLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:src="@drawable/ic_dotted_red"
+                app:layout_constraintEnd_toEndOf="@id/imgPickUpLocation"
+                app:layout_constraintStart_toStartOf="@id/imgPickUpLocation"
+                app:layout_constraintTop_toBottomOf="@id/imgPickUpLocation" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/ic_location"
+                app:layout_constraintEnd_toEndOf="@id/imgPickUpLocation"
+                app:layout_constraintStart_toStartOf="@id/imgPickUpLocation"
+                app:layout_constraintTop_toBottomOf="@id/imgeDropLocation" />
+
+
+            <View
+                android:id="@+id/viewLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="10dp"
+                app:layout_goneMarginEnd="10dp"
+                android:background="@color/gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgeDropLocation"
+                app:layout_constraintTop_toBottomOf="@id/txtPickUpAddress" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDropOff"
+                android:layout_width="55dp"
+                android:layout_height="16dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/drop_off"
+                android:textColor="@color/darkGray"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@id/imgPickUpLocation"
+                app:layout_constraintTop_toBottomOf="@id/viewLine" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDropOffAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/where_to"
+                android:textColor="@color/theme_color"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/txtDropOff"
+                app:layout_constraintTop_toBottomOf="@id/txtDropOff" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/distanceAndKm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/bg_background_tab"
+            app:layout_constraintTop_toBottomOf="@id/pickupDropUpAddress"
+            app:layout_constraintBottom_toTopOf="@id/dateAndtimeConstraint">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/distance"
+                android:textColor="@color/darkGray"
+                app:layout_constraintEnd_toStartOf="@id/totleAndDistanceViewLine"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtKm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_0_01_km"
+                android:textColor="@color/theme_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtDistance"
+                app:layout_constraintTop_toBottomOf="@id/txtDistance" />
+
+            <View
+                android:id="@+id/totleAndDistanceViewLine"
+                android:layout_width="1dp"
+                android:layout_height="0dp"
+                android:layout_marginStart="20dp"
+                android:background="@color/gray"
+                app:layout_constraintBottom_toBottomOf="@id/txtKm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/txtDistance"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/txtDistance" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtTotalPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/total_prices"
+                android:textColor="@color/darkGray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/totleAndDistanceViewLine"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/kes_0_00"
+                android:textColor="@color/theme_color"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/txtTotalPrice"
+                app:layout_constraintTop_toBottomOf="@id/txtTotalPrice" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dateAndtimeConstraint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_background_tab"
+            android:layout_marginBottom="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/distanceAndKm"
+            >
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtDateAndTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/datetime"
+                android:textColor="@color/darkGray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/zero"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="00:00"
+                android:textColor="@color/theme_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/dateTimeViewLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/theme_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtDateAndTime" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtServicesType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/services_type"
+                android:textColor="@color/darkGray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateTimeViewLine" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/showfa_boda"
+                android:textColor="@color/theme_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dateTimeViewLine" />
+
+            <View
+                android:id="@+id/servicesTypeViewLine"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:background="@color/theme_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtServicesType" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtVehicalInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/vehical_info"
+                android:textColor="@color/darkGray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/servicesTypeViewLine" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/vehicleInfoCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/gj_1_vg_33"
+                android:textColor="@color/theme_color"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/servicesTypeViewLine" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/font_regular"
+                android:text="@string/boda_boda_kawasaki_motorcycles"
+                android:textColor="@color/theme_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/vehicleInfoCode" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/totalPayable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/theme_color"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintTop_toBottomOf="@id/dateAndtimeConstraint"
+            android:layout_marginBottom="30dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:background="@drawable/bg_background_tab"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                >
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/font_bold"
+                    android:text="@string/total_payable"
+                    android:textColor="@color/theme_color"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/key_0_00"
+                    android:textColor="@color/blue"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/invoiceCardView"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:background="@drawable/bg_background_tab"
+            app:cardCornerRadius="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/totalPayable"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/theme_color"
+            app:strokeWidth="1dp">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/invoicelayout"
+                android:layout_width="203dp"
+                android:padding="5dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/imgInvoice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_invoice"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/txtInvoices"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/txtInvoices"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:text="@string/download_invoice"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imgInvoice"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

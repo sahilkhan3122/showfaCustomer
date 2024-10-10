@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cardViewConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPickUpLocation"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPickUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/font_bold"
+            android:text="@string/pickup"
+            android:textColor="@color/theme_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPickUpAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bold"
+            android:text="@string/_522_5th_floor_i_square_corporate_park_sciecity"
+            android:textSize="12sp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toStartOf="@id/imgPickUpFavourite"
+            app:layout_constraintStart_toStartOf="@id/txtPickUp"
+            app:layout_constraintTop_toBottomOf="@id/txtPickUp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgeDropLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_dotted_red"
+            app:layout_constraintEnd_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintStart_toStartOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toBottomOf="@id/imgPickUpLocation" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_location"
+            app:layout_constraintEnd_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintStart_toStartOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toBottomOf="@id/imgeDropLocation" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgPickUpFavourite"
+            android:layout_width="15dp"
+            android:layout_height="14dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/start_selected"
+            android:tint="@color/theme_color"
+            app:layout_constraintBottom_toBottomOf="@id/txtPickUpAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtPickUpAddress" />
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgeDropLocation"
+            app:layout_constraintTop_toBottomOf="@id/txtPickUpAddress" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDropOff"
+            android:layout_width="55dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/font_bold"
+            android:text="@string/drop_off"
+            android:textColor="@color/theme_color"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toBottomOf="@id/viewLine" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDropOffAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bold"
+            android:hint="@string/where_to"
+            android:layout_marginEnd="20dp"
+            android:textColor="@color/gray"
+            android:layout_marginTop="5dp"
+            app:layout_constraintEnd_toStartOf="@id/imgDroupOffFavourite"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@id/txtDropOff"
+            app:layout_constraintTop_toBottomOf="@id/txtDropOff" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgDroupOffFavourite"
+            android:layout_width="15dp"
+            android:layout_height="14dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/start_selected"
+            android:tint="@color/theme_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtDropOffAddress" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

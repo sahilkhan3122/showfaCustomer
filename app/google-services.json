@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "383357626179",
+    "project_id": "showfa-customer-android",
+    "storage_bucket": "showfa-customer-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:383357626179:android:b80f0e6509c0e2c0ff31f6",
+        "android_client_info": {
+          "package_name": "com.example.showfa_customer_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "383357626179-c1ebr8k7l25o03vc1jusu4937canc9ve.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8Ck5K06dMv9LBRwfvOkritmKTIq7VWEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "383357626179-c1ebr8k7l25o03vc1jusu4937canc9ve.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

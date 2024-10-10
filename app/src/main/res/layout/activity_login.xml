@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="ui.login.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/layout"
+        tools:context="ui.login.LoginActivity">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgBg"
+            style="@style/MaterialTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_login_header_image"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/welcomeToSwofa"
+            style="@style/MaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="88dp"
+            android:text="@string/welcome_to_swofa"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/welcomeView"
+            android:layout_width="60dp"
+            android:layout_height="2dp"
+            android:background="@color/blue"
+            app:layout_constraintStart_toStartOf="@id/welcomeToSwofa"
+            app:layout_constraintTop_toBottomOf="@id/welcomeToSwofa" />
+
+        <include
+            android:id="@+id/imgLoader"
+            android:layout_height="0dp"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            layout="@layout/item_loader"
+            android:layout_marginTop="30dp"
+            app:layout_constraintTop_toBottomOf="@id/codeViewLine"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgFlag"
+            android:layout_width="40dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:src="@drawable/flag_ke"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imgBg" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/flagCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="@string/_254"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/imgFlag"
+            app:layout_constraintStart_toEndOf="@id/imgFlag"
+            app:layout_constraintTop_toTopOf="@id/imgFlag" />
+
+        <View
+            android:id="@+id/codeViewLine"
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/viewLine"
+            app:layout_constraintBottom_toTopOf="@id/flagView"
+            app:layout_constraintStart_toEndOf="@id/flagCode"
+            app:layout_constraintTop_toTopOf="@id/flagCode" />
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/edtNumber"
+            style="@style/MaterialEdittext"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="0dp"
+            android:layout_marginEnd="50dp"
+            android:inputType="phone"
+            android:maxLength="12"
+            android:imeOptions="actionDone"
+            android:background="@color/transparent"
+            android:text="@={viewmodel.mobileNumber}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/codeViewLine"
+            app:layout_constraintTop_toTopOf="@id/flagCode" />
+
+        <View
+            android:id="@+id/flagView"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/viewLine"
+            app:layout_constraintEnd_toEndOf="@id/edtNumber"
+            app:layout_constraintStart_toStartOf="@id/imgFlag"
+            app:layout_constraintTop_toBottomOf="@id/imgFlag" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtOrConnectSocialMedia"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_regular"
+            android:gravity="center"
+            android:text="@string/or_connect_using_social_media"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/flagView" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgGoogle"
+            android:layout_width="95dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/googleicon"
+            app:layout_constraintBottom_toTopOf="@id/btnNext"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.533"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtOrConnectSocialMedia"
+            app:layout_constraintVertical_bias="0.032" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnNext"
+            style="@style/MaterialButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{()-> viewmodel.navigator.onNext()}"
+            android:text="@string/next"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/txtNotShowfaUSer"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNotShowfaUSer"
+            style="@style/MaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/not_a_showfa_user"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/txtRegister"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtRegister"
+            style="@style/MaterialTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/font_bold"
+            android:onClick="@{()-> viewmodel.navigator.onRegisterText()}"
+            android:text="@string/register"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtNotShowfaUSer"
+            app:layout_constraintTop_toTopOf="@id/txtNotShowfaUSer" />
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

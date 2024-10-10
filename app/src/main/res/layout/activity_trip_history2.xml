@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ui.tripHistory.TripHistoryViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.tripHistory.TripHistoryActivity">
+
+        <include
+            android:id="@+id/tripHistoryToolbar"
+            layout="@layout/item_toolbar" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tripHistoryToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/frgardView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.fragment.app.FragmentContainerView
+                        android:id="@+id/mapFragment"
+                        android:name="com.google.android.gms.maps.SupportMapFragment"
+                        android:layout_width="match_parent"
+                        android:layout_height="170dp"
+                        app:layout_constraintBottom_toTopOf="@id/pickUpAndDropUpData"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tripHistoryToolbar" />
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <include
+                    android:id="@+id/pickUpAndDropUpData"
+                    layout="@layout/item_past_data"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/frgardView" />
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/invoiceCardView"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/bg_background_tab"
+                    app:cardCornerRadius="20dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/pickUpAndDropUpData"
+                    app:strokeColor="@color/theme_color"
+                    app:strokeWidth="1dp">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/invoicelayout"
+                        android:layout_width="203dp"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/imgInvoice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="5dp"
+                            android:layout_marginBottom="10dp"
+                            android:src="@drawable/ic_invoice"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/txtInvoices"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtInvoices"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:text="@string/invoice"
+                            android:textSize="18sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/imgInvoice"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/placeholder"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/invoiceCardView">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/nameRatingImgConstraint"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@id/imgUSer"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@drawable/user_img"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearance="@style/imageSize" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtUSerName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:fontFamily="@font/font_bold"
+                            android:text="@string/khushbu_gajera"
+                            android:textColor="@color/theme_color"
+                            app:layout_constraintStart_toEndOf="@id/imgUSer"
+                            app:layout_constraintTop_toTopOf="@id/imgUSer" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/txtUSerRate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:fontFamily="@font/font_bold"
+                            android:text="@string/you_rated"
+                            android:textColor="@color/darkGray"
+                            app:layout_constraintBottom_toBottomOf="@id/imgUSer"
+                            app:layout_constraintStart_toEndOf="@id/imgUSer"
+                            app:layout_constraintTop_toBottomOf="@id/txtUSerName" />
+
+                        <RatingBar
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:numStars="5"
+                            android:scaleX="0.5"
+
+                            android:scaleY="0.5"
+                            app:layout_constraintBottom_toBottomOf="@id/txtUSerRate"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/txtUSerRate"
+                            app:layout_constraintTop_toTopOf="@id/txtUSerRate" />
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/imgMessage"
+                            android:layout_width="45dp"
+                            android:layout_height="45dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:background="@color/bgColorData"
+                            android:scaleType="center"
+                            android:src="@drawable/ic_message"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/imgUSer"
+                            app:layout_constraintTop_toBottomOf="@id/imgUSer"
+                            app:layout_constraintVertical_bias="0.0"
+                            app:shapeAppearance="@style/imageSize"
+                            app:strokeColor="@color/theme_color"
+                            app:strokeWidth="1dp" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:layout_width="0dp"
+                            android:layout_height="45dp"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:background="@drawable/bg_need_help"
+                            android:fontFamily="@font/font_bold"
+                            android:gravity="center_vertical"
+                            android:text="Need Help?"
+                            android:textAlignment="center"
+                            android:textColor="@color/theme_color"
+                            app:layout_constraintBottom_toBottomOf="@id/imgMessage"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/imgMessage"
+                            app:layout_constraintTop_toTopOf="@id/imgMessage"
+                            tools:ignore="RtlCompat" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

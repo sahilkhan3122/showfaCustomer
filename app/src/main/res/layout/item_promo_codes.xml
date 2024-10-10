@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:padding="10dp"
+        android:background="@drawable/bg_background_tab">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgPromoCodes"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_promo_icon"
+            android:tint="@color/theme_color"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="10dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/promoCodes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imgPromoCodes"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/flat50"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/theme_color"
+            android:textSize="18sp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/font_bold"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/validTill"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@+id/imgPromoCodes"
+            app:layout_constraintTop_toBottomOf="@id/promoCodes"
+            android:text="@string/valid_till_30_12_2023"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/darkGray"
+            android:textSize="14sp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"
+            android:fontFamily="@font/font_regular"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

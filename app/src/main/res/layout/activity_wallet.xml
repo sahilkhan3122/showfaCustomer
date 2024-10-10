@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="ui.wallet.WalletViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.wallet.WalletActivity">
+
+        <include
+            android:id="@+id/walletToolbar"
+            layout="@layout/item_toolbar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/walletBalanceConstraint"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/bg_background_tab"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/walletToolbar">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtWalletBalance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/your_wallet_balance"
+                android:textColor="@color/colorThemeGray"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtKey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/key"
+                android:textColor="@color/theme_color"
+                android:textSize="24sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtWalletBalance" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgAddMoney"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/theme_color"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_wallet_add_money"
+                android:tint="@color/white"
+                app:contentPadding="10dp"
+                app:layout_constraintEnd_toStartOf="@id/imgSentMoney"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtKey"
+                app:shapeAppearance="@style/imageSize" />
+
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtAddMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/add_mony"
+                android:textColor="@color/theme_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/imgAddMoney"
+                app:layout_constraintStart_toStartOf="@id/imgAddMoney"
+                app:layout_constraintTop_toBottomOf="@id/imgAddMoney" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgSentMoney"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/theme_color"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_wallet_add_money"
+                android:tint="@color/white"
+                app:contentPadding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imgAddMoney"
+                app:layout_constraintTop_toBottomOf="@id/txtKey"
+                app:layout_constraintTop_toTopOf="@id/imgAddMoney"
+                app:shapeAppearance="@style/imageSize" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtSentMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/sent_money"
+                android:textColor="@color/theme_color"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/imgSentMoney"
+                app:layout_constraintStart_toStartOf="@id/imgSentMoney"
+                app:layout_constraintTop_toBottomOf="@id/imgSentMoney" />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgActiveWallet"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/white"
+                android:backgroundTint="@color/theme_color"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_wallet_active"
+                android:tint="@color/white"
+                android:visibility="gone"
+                app:contentPadding="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtKey"
+                app:shapeAppearance="@style/imageSize" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtActiveYourWallet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/font_bold"
+                android:text="@string/active_you_wallet"
+                android:textColor="@color/theme_color"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imgActiveWallet" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_bold"
+            android:text="@string/history"
+            android:textColor="@color/theme_color"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/walletBalanceConstraint" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/walletHistoryRecyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/bg_background_tab"
+            android:nestedScrollingEnabled="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtHistory" />
+
+        <ProgressBar
+            android:id="@+id/progressbar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <include
+            android:id="@+id/imgLoader"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            layout="@layout/item_loader"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

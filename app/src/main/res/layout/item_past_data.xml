@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_background_tab"
+        android:layout_marginBottom="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        tools:context="fragment.past.PastFragment">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgPickUpLocation"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="5dp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPickUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/font_regular"
+            android:text="@string/pickup"
+            android:textColor="@color/darkGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtCompited"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="30dp"
+            android:text="@string/completed"
+            android:textColor="@color/green"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtPickUp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPickUpAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/font_regular"
+            android:textColor="@color/theme_color"
+            android:text="@string/_522_5th_floor_i_square_corporate_park_sciecity"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/txtPickUp"
+            app:layout_constraintTop_toBottomOf="@id/txtPickUp" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgeDropLocation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/ic_dotted_red"
+            app:layout_constraintEnd_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintStart_toStartOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toBottomOf="@id/imgPickUpLocation" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_location"
+            app:layout_constraintEnd_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintStart_toStartOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toBottomOf="@id/imgeDropLocation" />
+
+
+        <View
+            android:id="@+id/pickUpViewLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgeDropLocation"
+            app:layout_constraintTop_toBottomOf="@id/txtPickUpAddress" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDropOff"
+            android:layout_width="55dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/font_regular"
+            android:text="@string/drop_off"
+            android:textColor="@color/darkGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toEndOf="@id/imgPickUpLocation"
+            app:layout_constraintTop_toBottomOf="@id/pickUpViewLine" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDropOffAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/font_bold"
+            android:layout_marginTop="10dp"
+            android:text="@string/where_to"
+            android:textColor="@color/theme_color"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/txtDropOff"
+            app:layout_constraintTop_toBottomOf="@id/txtDropOff" />
+
+
+        <View
+            android:id="@+id/dropOffViewLine"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imgeDropLocation"
+            app:layout_constraintTop_toBottomOf="@id/txtDropOffAddress" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@id/btnId"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/theme_color"
+            android:text="@string/id_2026"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@id/txtDistance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dropOffViewLine"
+            tools:layout_editor_absoluteX="0dp" />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDayDateAndTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tuesday_may_9_4_50_pm"
+            android:textColor="@color/theme_color"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@id/btnId"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.73"
+            app:layout_constraintStart_toEndOf="@+id/btnId"
+            app:layout_constraintTop_toBottomOf="@id/dropOffViewLine"
+            app:layout_constraintVertical_bias="0.531" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/theme_color"
+            app:layout_constraintEnd_toEndOf="@id/txtDayDateAndTime"
+            app:layout_constraintStart_toStartOf="@id/txtDayDateAndTime"
+            app:layout_constraintTop_toBottomOf="@id/txtDayDateAndTime" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/distance"
+            android:textSize="18sp"
+            android:textColor="@color/darkGray"
+            app:layout_constraintEnd_toStartOf="@id/totleAndDistanceViewLine"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btnId" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtKm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/_0_01_km"
+            app:layout_constraintStart_toStartOf="@id/txtDistance"
+            app:layout_constraintTop_toBottomOf="@id/txtDistance"
+             />
+
+        <View
+            android:id="@+id/totleAndDistanceViewLine"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="20dp"
+            android:background="@color/gray"
+            app:layout_constraintBottom_toBottomOf="@id/txtKm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txtDistance"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txtDistance" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTotalPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="@string/total_price"
+            android:textColor="@color/darkGray"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/totleAndDistanceViewLine"
+            app:layout_constraintTop_toBottomOf="@id/txtDayDateAndTime" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="30dp"
+            android:text="@string/_0_01_km"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@id/txtTotalPrice"
+            app:layout_constraintTop_toBottomOf="@id/txtTotalPrice" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

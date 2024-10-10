@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="ui.legal.LegalViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ui.legal.LegalActivity">
+
+        <include
+            android:id="@+id/privacyPolicyToolbar"
+            layout="@layout/item_toolbar" />
+
+        <View
+            android:id="@+id/policyViewLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="2dp"
+            android:background="@color/darkGray"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/privacyPolicyToolbar" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTermAndCondition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/term_condition"
+            android:textSize="16sp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/font_regular"
+            app:layout_constraintTop_toBottomOf="@id/policyViewLine"/>
+        <View
+            android:id="@+id/viewLineTermAndCondition"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintTop_toBottomOf="@id/txtTermAndCondition"
+            android:background="@color/gray"
+            android:layout_marginTop="20dp"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtPrivacyPolicy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/privacy_policy"
+            android:textSize="16sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:fontFamily="@font/font_regular"
+            app:layout_constraintTop_toBottomOf="@id/viewLineTermAndCondition"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

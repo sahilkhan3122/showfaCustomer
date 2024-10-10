@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/searchPlacesConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_bottomsheet">
+
+        <View
+            android:id="@+id/viewLine"
+            android:layout_width="70dp"
+            android:layout_height="3dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtSearchPlace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/search_place"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:fontFamily="@font/font_regular"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewLine" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imgClose"
+            android:layout_width="30dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="20dp"
+            android:src="@drawable/ic_close_circle"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@id/txtSearchPlace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewLine"
+            app:layout_constraintTop_toTopOf="@id/txtSearchPlace" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="-10dp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtSearchPlace">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/txtAddressFav"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/search_here"
+                    android:textColor="@color/theme_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toStartOf="@id/imgLocation"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgLocation"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:src="@drawable/ic_my_location"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:tint="@color/theme_color" />
+
+                <View
+                    android:id="@+id/viewLineAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@color/darkGray"
+                    app:layout_constraintTop_toBottomOf="@id/txtAddressFav" />
+
+                <RadioGroup
+                    android:id="@+id/idRadioButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/bgColorData"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/btnAddPlace"
+                    app:layout_constraintEnd_toEndOf="@id/viewLineAddress"
+                    app:layout_constraintStart_toStartOf="@id/viewLineAddress"
+                    app:layout_constraintTop_toBottomOf="@id/viewLineAddress">
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/txtHome"
+                        android:layout_width="100dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/selecte_bottom"
+                        android:button="@null"
+                        android:checked="true"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:text="@string/home"
+                        android:textColor="@color/theme_color" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/txtOffice"
+                        android:layout_width="100dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/selecte_bottom"
+                        android:button="@null"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:text="@string/office"
+                        android:textColor="@color/theme_color" />
+
+                    <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/txtOther"
+                        android:layout_width="100dp"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginEnd="3dp"
+                        android:layout_marginBottom="3dp"
+                        android:background="@drawable/selecte_bottom"
+                        android:button="@null"
+                        android:fontFamily="@font/font_bold"
+                        android:gravity="center"
+                        android:text="@string/other"
+                        android:textColor="@color/theme_color" />
+                </RadioGroup>
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/imgFlag"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:visibility="gone"
+                    android:src="@drawable/flag_ke"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/txtAddressFav" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/flagCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/_254"
+                    android:visibility="gone"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="@id/imgFlag"
+                    app:layout_constraintStart_toEndOf="@id/imgFlag"
+                    app:layout_constraintTop_toTopOf="@id/imgFlag" />
+
+                <View
+                    android:id="@+id/editNumberViewLine"
+                    android:layout_width="1dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/viewLine"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toTopOf="@id/flagView"
+                    app:layout_constraintStart_toEndOf="@id/flagCode"
+                    app:layout_constraintTop_toTopOf="@id/flagCode" />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/edtNumber"
+                    style="@style/MaterialEdittext"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@color/transparent"
+                    android:hint="@string/enter_phone_number"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone"
+                    android:visibility="gone"
+                    android:textColor="@color/theme_color"
+                    android:textColorHint="@color/darkGray"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@id/flagCode"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/editNumberViewLine"
+                    app:layout_constraintTop_toTopOf="@id/flagCode" />
+
+
+                <View
+                    android:id="@+id/flagView"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    android:background="@color/viewLine"
+                    app:layout_constraintEnd_toEndOf="@id/edtNumber"
+                    app:layout_constraintStart_toStartOf="@id/imgFlag"
+                    app:layout_constraintTop_toBottomOf="@id/imgFlag" />
+
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnAddPlace"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/idRadioButton"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/bg_addplaces_btn"
+                    android:text="@string/add_place"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                     />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sendingMoney"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/font_regular"
+                    android:text="@string/sending_100"
+                    android:visibility="gone"
+                    android:textColor="@color/theme_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editNumberViewLine" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/sendNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/font_bold"
+                    android:text="@string/to_9328452118"
+                    android:textColor="@color/darkGray"
+                    android:textSize="16sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sendingMoney" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/customerAndDriverNumberSame"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="vdfewdcejhdfedvej"
+                    android:visibility="gone"
+                    android:textAlignment="center"
+                    android:textColor="@color/theme_color"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/sendNumber" />
+
+                <LinearLayout
+                    android:id="@+id/spinnerCl"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/bg_background_tab"
+                    android:orientation="horizontal"
+                    android:padding="10dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@id/customerAndDriverNumberSame">
+
+                    <androidx.appcompat.widget.AppCompatSpinner
+                        android:id="@+id/spinnerCustomerAndDriver"
+                        android:layout_width="353dp"
+                        android:layout_height="25dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:popupBackground="@color/white">
+
+                    </androidx.appcompat.widget.AppCompatSpinner>
+
+                    <ImageView
+                        android:id="@+id/imageDropDown"
+                        android:layout_width="16dp"
+                        android:layout_height="17dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginEnd="5dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/ic_down_arrow" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
